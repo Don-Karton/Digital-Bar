@@ -1,0 +1,41 @@
+{
+    "header": {
+        "title": "DRUNK OWL BAR"
+    },
+    "nav": {
+        "home": "Домой",
+        "cart": "Корзина",
+        "entertainment": "Развлечения",
+        "horeca": "HoReCa",
+        "back": "Назад"
+    },
+    "buttons": {
+        "add_to_cart": "Добавить в корзину",
+        "increase_quantity": "Увеличить количество",
+        "decrease_quantity": "Уменьшить количество",
+        "remove_from_cart": "Удалить",
+        "clear_cart": "Очистить корзину"
+    },
+    "cart": {
+        "title": "Корзина",
+        "empty": "Ваша корзина пуста.",
+        "total": "Общая сумма"
+    },
+    "product": {
+        "price": "Цена",
+        "description": "Описание",
+        "in_cart": "В корзине"
+    },
+    "footer": {
+        "copyright": "&copy; 2024 Drunk Owl Bar"
+    },
+    "horeca": {
+        "title": "Партнеры HoReCa"
+    },
+    "entertainment": {
+        "title": "Развлечения",
+        "game_profile": "Профиль игрока",
+        "wallet": "Кошелек",
+        "mini_games": "Мини-игры"
+    }
+}

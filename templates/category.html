@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ category_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1 id="header-title">{{ category_name }}</h1>
+        <nav class="nav-bar">
+            <button onclick="history.back()" class="nav-button" title="Back">
+                <img src="{{ url_for('static', filename='images/icons/back.png') }}" alt="Back">
+            </button>
+            <a href="{{ url_for('home') }}" class="nav-button" title="Home">
+                <img src="{{ url_for('static', filename='images/icons/home.png') }}" alt="Home">
+            </a>
+            <a href="{{ url_for('cart') }}" class="nav-button" title="Cart">
+                <img src="{{ url_for('static', filename='images/icons/cart.png') }}" alt="Cart">
+            </a>
+            <button class="language-switch" onclick="switchLanguage()">EN</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="menu-grid">
+            {% for product in products %}
+            <div class="menu-item">
+                <a href="{{ url_for('product', product_id=product['id']) }}">
+                    <img src="{{ url_for('static', filename='images/' + product['image']) }}" alt="{{ product['name'] }}">
+                    <p>{{ product['name'] }} ({{ product['weight'] }})</p>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

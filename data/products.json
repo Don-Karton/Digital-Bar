@@ -1,0 +1,12 @@
+[
+    {"id": 1, "name": "Mohito", "description": "Ice cocktail with mint and lime.", "price": 350, "category_id": 1, "weight": "300мл", "image": "products/cocktails/mohito.png"},
+    {"id": 2, "name": "Long Iland", "description": "Крепкий коктейль с колой и лимоном.", "price": 450, "category_id": 1, "weight": "400мл", "image": "products/cocktails/long_island.png"},
+    {"id": 3, "name": "Margarita", "description": "Классический коктейль с текилой и лаймом.", "price": 400, "category_id": 1, "weight": "300мл", "image": "products/cocktails/margarita.png"},
+    {"id": 4, "name": "Huegarden", "description": "Светлое пиво с мягким вкусом.", "price": 250, "category_id": 2, "weight": "500мл", "image": "products/beer/hoegaarden.png"},
+    {"id": 5, "name": "Ginnes", "description": "Тёмное пиво с кремовой пеной.", "price": 300, "category_id": 2, "weight": "500мл", "image": "products/beer/guinness.png"},
+    {"id": 6, "name": "Whiskey", "description": "Выдержанный виски.", "price": 200, "category_id": 3, "weight": "50мл", "image": "products/shots/whiskey_shot.png"},
+    {"id": 7, "name": "Crunberry shot", "description": "Домашняя клюквенная настойка.", "price": 150, "category_id": 3, "weight": "50мл", "image": "products/shots/cranberry_infusion.png"},
+    {"id": 8, "name": "Red wine", "description": "Бутылка красного сухого вина.", "price": 600, "category_id": 4, "weight": "750мл", "image": "products/wine/red_wine.png"},
+    {"id": 9, "name": "Wight wine", "description": "Бутылка белого сухого вина.", "price": 600, "category_id": 4, "weight": "750мл", "image": "products/wine/white_wine.png"},
+    {"id": 10, "name": "Bruschetta", "description": "Закуска с томатами и базиликом.", "price": 300, "category_id": 5, "weight": "150г", "image": "products/snacks/bruschetta.png"}
+]

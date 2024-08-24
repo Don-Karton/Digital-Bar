@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1 id="header-title">{{ product.name }}</h1>
+        <nav class="nav-bar">
+            <button onclick="history.back()" class="nav-button" title="Back">
+                <img src="{{ url_for('static', filename='images/icons/back.png') }}" alt="Back">
+            </button>
+            <a href="{{ url_for('home') }}" class="nav-button" title="Home">
+                <img src="{{ url_for('static', filename='images/icons/home.png') }}" alt="Home">
+            </a>
+            <a href="{{ url_for('cart') }}" class="nav-button" title="Cart">
+                <img src="{{ url_for('static', filename='images/icons/cart.png') }}" alt="Cart">
+            </a>
+            <button class="language-switch" onclick="switchLanguage()">EN</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="product-detail">
+            <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}">
+            <div class="product-info">
+                <h2>{{ product.name }}</h2>
+                <p>{{ product.description }}</p>
+                <p>Price: {{ product.price }} ₽</p>
+                <div class="product-actions">
+                    <button id="add-to-cart-btn" onclick="addToCart({{ product.id }})">Add to Cart</button>
+                    {% if is_in_cart %}
+                        <button onclick="increaseQuantity({{ product.id }})">+</button>
+                        <button onclick="decreaseQuantity({{ product.id }})">-</button>
+                        <span>In Cart: {{ quantity }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

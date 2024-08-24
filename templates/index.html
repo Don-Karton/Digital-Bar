@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drunk Owl Bar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="header">
+
+        <nav class="nav-bar">
+            <a href="{{ url_for('cart') }}" class="nav-button" title="Cart">
+                <img src="{{ url_for('static', filename='images/icons/cart.png') }}" alt="Cart">
+                <span id="cart-count">{{ session.get('cart', [])|length }}</span>
+            </a>
+            <a href="{{ url_for('home') }}" class="nav-button" title="Home">
+                <img src="{{ url_for('static', filename='images/icons/home.png') }}" alt="Home">
+            </a>
+            <a href="{{ url_for('entertainment') }}" class="nav-button" title="Entertainment">
+                <img src="{{ url_for('static', filename='images/icons/entertainment.png') }}" alt="Entertainment">
+            </a>
+            <a href="{{ url_for('horeca') }}" class="nav-button" title="HoReCa">
+                <img src="{{ url_for('static', filename='images/icons/horeca.png') }}" alt="HoReCa">
+            </a>
+            <button class="language-switch" onclick="switchLanguage()">EN</button>
+        </nav>
+
+        <!-- Блок для отображения карточек товаров -->
+        <div class="header-content" id="collection-info">
+            <p>Выберите категорию, чтобы увидеть товары.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="menu">
+            <div class="menu-grid">
+                {% for category in categories %}
+                <div class="menu-item" onclick="showCollectionInfo({{ category.id }})">
+                    <a href="#">
+                        <img src="{{ url_for('static', filename='images/categories/' + category['icon']) }}" alt="{{ category['name'] }}">
+                        <p>{{ category['name'] }}</p>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Drunk Owl Bar</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

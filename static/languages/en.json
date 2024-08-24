@@ -1,0 +1,41 @@
+{
+    "header": {
+        "title": "DRUNK OWL BAR"
+    },
+    "nav": {
+        "home": "Home",
+        "cart": "Cart",
+        "entertainment": "Entertainment",
+        "horeca": "HoReCa",
+        "back": "Back"
+    },
+    "buttons": {
+        "add_to_cart": "Add to Cart",
+        "increase_quantity": "Increase Quantity",
+        "decrease_quantity": "Decrease Quantity",
+        "remove_from_cart": "Remove",
+        "clear_cart": "Clear Cart"
+    },
+    "cart": {
+        "title": "Cart",
+        "empty": "Your cart is empty.",
+        "total": "Total"
+    },
+    "product": {
+        "price": "Price",
+        "description": "Description",
+        "in_cart": "In Cart"
+    },
+    "footer": {
+        "copyright": "&copy; 2024 Drunk Owl Bar"
+    },
+    "horeca": {
+        "title": "HoReCa Partners"
+    },
+    "entertainment": {
+        "title": "Entertainment",
+        "game_profile": "Game Profile",
+        "wallet": "Wallet",
+        "mini_games": "Mini Games"
+    }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1 id="header-title">Game Profile</h1>
+        <nav class="nav-bar">
+            <a href="{{ url_for('cart') }}" class="nav-button" title="Cart">
+                <img src="{{ url_for('static', filename='images/icons/cart.png') }}" alt="Cart">
+                <span id="cart-count">{{ session.get('cart', [])|length }}</span>
+            </a>
+            <a href="{{ url_for('home') }}" class="nav-button" title="Home">
+                <img src="{{ url_for('static', filename='images/icons/home.png') }}" alt="Home">
+            </a>
+            <a href="{{ url_for('entertainment') }}" class="nav-button" title="Entertainment">
+                <img src="{{ url_for('static', filename='images/icons/entertainment.png') }}" alt="Entertainment">
+            </a>
+            <a href="{{ url_for('horeca') }}" class="nav-button" title="HoReCa">
+                <img src="{{ url_for('static', filename='images/icons/horeca.png') }}" alt="HoReCa">
+            </a>
+            <button class="language-switch" onclick="switchLanguage()">EN</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Player Stats</h2>
+        <!-- Данные профиля игрока могут быть здесь -->
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

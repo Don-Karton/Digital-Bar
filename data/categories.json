@@ -1,0 +1,10 @@
+[
+    {"id": 1, "name": "Cocktails", "icon": "cocktails.png"},
+    {"id": 2, "name": "Beer", "icon": "beer.png"},
+    {"id": 3, "name": "Hot-Shots", "icon": "shots.png"},
+    {"id": 4, "name": "Wine", "icon": "wine.png"},
+    {"id": 5, "name": "Snacks", "icon": "snacks.png"},
+    {"id": 6, "name": "Hot dishes", "icon": "hot_dishes.png"},
+    {"id": 7, "name": "Combo menu", "icon": "combo.png"},
+    {"id": 8, "name": "SALES", "icon": "promo.png"}
+]
