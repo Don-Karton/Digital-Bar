@@ -7,49 +7,61 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <header class="header">
 
-        <nav class="nav-bar">
-            <a href="{{ url_for('cart') }}" class="nav-button" title="Cart">
-                <img src="{{ url_for('static', filename='images/icons/cart.png') }}" alt="Cart">
-                <span id="cart-count">{{ session.get('cart', [])|length }}</span>
-            </a>
+    <!-- Навигационная панель -->
+    <div class="nav-bar-container">
+        <div class="nav-bar">
             <a href="{{ url_for('home') }}" class="nav-button" title="Home">
                 <img src="{{ url_for('static', filename='images/icons/home.png') }}" alt="Home">
             </a>
-            <a href="{{ url_for('entertainment') }}" class="nav-button" title="Entertainment">
-                <img src="{{ url_for('static', filename='images/icons/entertainment.png') }}" alt="Entertainment">
+            <a href="{{ url_for('entertainment') }}" class="nav-button" title="Game-Bar">
+                <img src="{{ url_for('static', filename='images/icons/entertainment.png') }}" alt="Game-Bar">
             </a>
             <a href="{{ url_for('horeca') }}" class="nav-button" title="HoReCa">
                 <img src="{{ url_for('static', filename='images/icons/horeca.png') }}" alt="HoReCa">
             </a>
+            <a href="{{ url_for('cart') }}" class="nav-button" title="Cart">
+                <img src="{{ url_for('static', filename='images/icons/cart.png') }}" alt="Cart">
+                <span id="cart-count">{{ session.get('cart', [])|length }}</span>
+            </a>
             <button class="language-switch" onclick="switchLanguage()">EN</button>
-        </nav>
+        </div>
+    </div>
 
-        <!-- Блок для отображения карточек товаров -->
-        <div class="header-content" id="collection-info">
+    <!-- Центральная часть экрана -->
+    <div class="main-content">
+        <div class="main-content-inner" id="collection-info">
             <p>Выберите категорию, чтобы увидеть товары.</p>
         </div>
-    </header>
-
-    <div class="container">
-        <main class="menu">
-            <div class="menu-grid">
-                {% for category in categories %}
-                <div class="menu-item" onclick="showCollectionInfo({{ category.id }})">
-                    <a href="#">
-                        <img src="{{ url_for('static', filename='images/categories/' + category['icon']) }}" alt="{{ category['name'] }}">
-                        <p>{{ category['name'] }}</p>
-                    </a>
-                </div>
-                {% endfor %}
-            </div>
-        </main>
-
-        <footer class="footer">
-            <p>&copy; 2024 Drunk Owl Bar</p>
-        </footer>
     </div>
+
+    <!-- Модальное окно для отображения информации о товаре -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-image" src="" alt="Product Image">
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <p id="modal-weight"></p>
+            <p id="modal-price"></p>
+            <button id="add-to-cart-modal-btn">Add to Cart</button>
+            <button id="increase-quantity-modal-btn">+</button>
+            <button id="decrease-quantity-modal-btn">-</button>
+        </div>
+    </div>
+
+    <!-- Нижняя часть экрана для меню категорий -->
+    <div class="footer">
+        {% for category in categories %}
+        <div class="footer-item" onclick="showCollectionInfo({{ category.id }})">
+            <img src="{{ url_for('static', filename='images/categories/' + category['icon']) }}" alt="{{ category['name'] }}">
+            <p>{{ category['name'] }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Всплывающее уведомление -->
+    <div id="toast">Товар добавлен в корзину</div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

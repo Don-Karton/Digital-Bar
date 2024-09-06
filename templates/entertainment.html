@@ -3,35 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entertainment</title>
+    <title>Game-Bar</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <header class="header">
-        <h1 id="header-title">Entertainment</h1>
-        <nav class="nav-bar">
-            <a href="{{ url_for('cart') }}" class="nav-button" title="Cart">
-                <img src="{{ url_for('static', filename='images/icons/cart.png') }}" alt="Cart">
-                <span id="cart-count">{{ session.get('cart', [])|length }}</span>
+
+    <!-- Навигационная панель -->
+    <div class="nav-bar-container">
+        <div class="nav-bar">
+            <a onclick="history.back()" class="nav-button" title="Back">
+                <img src="{{ url_for('static', filename='images/icons/back.png') }}" alt="Back">
             </a>
             <a href="{{ url_for('home') }}" class="nav-button" title="Home">
                 <img src="{{ url_for('static', filename='images/icons/home.png') }}" alt="Home">
             </a>
-            <a href="{{ url_for('entertainment') }}" class="nav-button" title="Entertainment">
-                <img src="{{ url_for('static', filename='images/icons/entertainment.png') }}" alt="Entertainment">
-            </a>
             <a href="{{ url_for('horeca') }}" class="nav-button" title="HoReCa">
                 <img src="{{ url_for('static', filename='images/icons/horeca.png') }}" alt="HoReCa">
             </a>
+            <a href="{{ url_for('entertainment') }}" class="nav-button" title="Game-Bar">
+                <img src="{{ url_for('static', filename='images/icons/entertainment.png') }}" alt="Game-Bar">
+            </a>
+            <a href="{{ url_for('cart') }}" class="nav-button" title="Cart">
+                <img src="{{ url_for('static', filename='images/icons/cart.png') }}" alt="Cart">
+                <span id="cart-count">{{ session.get('cart', [])|length }}</span>
+            </a>
             <button class="language-switch" onclick="switchLanguage()">EN</button>
-        </nav>
-    </header>
+        </div>
+    </div>
 
-    <div class="container">
-        <div class="game-grid">
-            <a href="{{ url_for('game_profile') }}" class="game-item">Game Profile</a>
-            <a href="#" class="game-item">Wallet</a>
-            <a href="#" class="game-item">Mini Games</a>
+    <!-- Центральная часть экрана для краткого описания игры -->
+    <div class="main-content">
+        <div class="main-content-inner" id="game-info">
+            <p>Выберите игру, чтобы увидеть описание.</p>
+        </div>
+    </div>
+
+    <!-- Нижняя часть экрана для списка игр -->
+    <div class="footer">
+        <div class="footer-item" onclick="showGameInfo('Alias')">
+            <img src="{{ url_for('static', filename='images/games/alias.png') }}" alt="Alias">
+            <p>Alias</p>
+        </div>
+        <div class="footer-item" onclick="showGameInfo('Monopoly')">
+            <img src="{{ url_for('static', filename='images/games/monopoly.png') }}" alt="Monopoly">
+            <p>Monopoly</p>
+        </div>
+        <div class="footer-item" onclick="showGameInfo('Casino')">
+            <img src="{{ url_for('static', filename='images/games/casino.png') }}" alt="Casino">
+            <p>Casino</p>
         </div>
     </div>
 

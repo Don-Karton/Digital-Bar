@@ -1,7 +1,12 @@
 [
-    {"name": "Отель Hilton", "url": "https://www.hilton.com"},
-    {"name": "Кафе Пушкин", "url": "https://www.cafepushkin.ru"},
-    {"name": "Ресторан Bosco", "url": "https://www.bosco.ru"},
-    {"name": "Бар Джон", "url": "https://www.johnbar.ru"},
-    {"name": "Клуб Спутник", "url": "https://www.sputnikclub.ru"}
+    {"name": "Redrum Tbilisi Boutique Hotel",
+        "url": "https://taplink.cc/redrum.hotel.tbilisi",
+        "image": "redrum.jpg"
+    },
+
+    {"name": "Unicorn Coffee & Wine",
+        "url": "https://www.instagram.com/unicorn.cafe.tbilisi/p/C7qsl2ZtnHf/",
+    "image": "unicorn.jpg"
+    }
+
 ]

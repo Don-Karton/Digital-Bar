@@ -7,23 +7,32 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <header class="header">
-        <h1 id="header-title">{{ product.name }}</h1>
-        <nav class="nav-bar">
-            <button onclick="history.back()" class="nav-button" title="Back">
-                <img src="{{ url_for('static', filename='images/icons/back.png') }}" alt="Back">
-            </button>
+
+    <!-- Навигационная панель -->
+    <div class="nav-bar-container">
+        <div class="nav-bar">
+            <a href="{{ url_for('cart') }}" class="nav-button" title="Cart">
+                <img src="{{ url_for('static', filename='images/icons/cart.png') }}" alt="Cart">
+                <span id="cart-count">{{ session.get('cart', [])|length }}</span>
+            </a>
             <a href="{{ url_for('home') }}" class="nav-button" title="Home">
                 <img src="{{ url_for('static', filename='images/icons/home.png') }}" alt="Home">
             </a>
-            <a href="{{ url_for('cart') }}" class="nav-button" title="Cart">
-                <img src="{{ url_for('static', filename='images/icons/cart.png') }}" alt="Cart">
+            <button onclick="history.back()" class="nav-button" title="Back">
+                <img src="{{ url_for('static', filename='images/icons/back.png') }}" alt="Back">
+            </button>
+            <a href="{{ url_for('entertainment') }}" class="nav-button" title="Game-Bar">
+                <img src="{{ url_for('static', filename='images/icons/entertainment.png') }}" alt="Game-Bar">
+            </a>
+            <a href="{{ url_for('horeca') }}" class="nav-button" title="HoReCa">
+                <img src="{{ url_for('static', filename='images/icons/horeca.png') }}" alt="HoReCa">
             </a>
             <button class="language-switch" onclick="switchLanguage()">EN</button>
-        </nav>
-    </header>
+        </div>
+    </div>
 
-    <div class="container">
+    <!-- Центральная часть экрана -->
+    <div class="main-content">
         <div class="product-detail">
             <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}">
             <div class="product-info">
@@ -31,7 +40,7 @@
                 <p>{{ product.description }}</p>
                 <p>Price: {{ product.price }} ₽</p>
                 <div class="product-actions">
-                    <button id="add-to-cart-btn" onclick="addToCart({{ product.id }})">Add to Cart</button>
+                    <button id="add-to-cart-btn" onclick="addToCart({{ product.id }})">+</button>
                     {% if is_in_cart %}
                         <button onclick="increaseQuantity({{ product.id }})">+</button>
                         <button onclick="decreaseQuantity({{ product.id }})">-</button>
@@ -40,6 +49,16 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Нижняя часть экрана для меню категорий -->
+    <div class="footer">
+        {% for category in categories %}
+        <div class="footer-item" onclick="showCollectionInfo({{ category.id }})">
+            <img src="{{ url_for('static', filename='images/categories/' + category['icon']) }}" alt="{{ category['name'] }}">
+            <p>{{ category['name'] }}</p>
+        </div>
+        {% endfor %}
     </div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
